@@ -1,4 +1,4 @@
-FROM roeldev/php-cli-alpine
+FROM roeldev/php-cli:latest
 ENV COMPOSER_ALLOW_SUPERUSER=1
 
 # install dependencies
