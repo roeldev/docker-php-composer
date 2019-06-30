@@ -1,4 +1,5 @@
-FROM roeldev/php-cli:latest
+ARG PHP_VERSION="7.1"
+FROM roeldev/php-cli:${PHP_VERSION}-latest
 ENV COMPOSER_ALLOW_SUPERUSER=1
 
 # install dependencies
