@@ -28,3 +28,5 @@ RUN set -x \
     --quiet \
     --install-dir=/usr/local/bin \
     --filename=composer
+
+ENV PATH=/root/.composer/vendor/bin:$PATH
