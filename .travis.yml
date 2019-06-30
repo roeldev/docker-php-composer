@@ -1,0 +1,25 @@
+sudo: required
+language: minimal
+services:
+  - docker
+
+env:
+  global:
+    - MAINTAINER=roeldev
+    - GITHUB_REPO=roeldev/docker-php-composer
+    - DOCKER_REPO=roeldev/php-composer
+  matrix:
+    - PHP_VERSION=7.1
+    - PHP_VERSION=7.2
+    - PHP_VERSION=7.3
+
+script:
+  - chmod ugo+x build/build.sh
+  - build/build.sh $PHP_VERSION
+
+before_deploy:
+  - docker login -u "$DOCKER_USER" -p "$DOCKER_PASS"
+
+deploy:
+  provider: script
+  script: docker push $DOCKER_REPO
