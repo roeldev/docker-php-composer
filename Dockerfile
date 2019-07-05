@@ -1,10 +1,14 @@
 ARG PHP_VERSION="7.1"
 FROM roeldev/php-cli:${PHP_VERSION}-latest
-ENV COMPOSER_ALLOW_SUPERUSER=1
+
+ENV COMPOSER_ALLOW_SUPERUSER=1 \
+    PATH="/root/.composer/vendor/bin:$PATH"
 
 # install dependencies
 RUN set -x \
- && apk add --no-cache \
+ && apk update \
+ && apk add \
+    --no-cache \
         git \
         unzip \
  # download composer installer
@@ -29,5 +33,3 @@ RUN set -x \
     --quiet \
     --install-dir=/usr/local/bin \
     --filename=composer
-
-ENV PATH=/root/.composer/vendor/bin:$PATH
