@@ -33,7 +33,7 @@ An image with PHP and Composer, based on Alpine Linux with S6 overlay. Can be us
 
 ## Builder image usage example
 ```
-ARG PHP_VERSION=7.3
+ARG PHP_VERSION="7.3"
 FROM roeldev/php-composer:${PHP_VERSION} as composer
 
 COPY local/path/to/project /project/folder
@@ -56,3 +56,7 @@ COPY --from=composer /project/folder /actual/project
 ## Links
 - Github: https://github.com/roeldev/docker-php-composer
 - Docker hub: https://hub.docker.com/r/roeldev/php-composer
+
+
+## License
+[GPL-3.0+](LICENSE) © 2019 [Roel Schut](https://roelschut.nl)
