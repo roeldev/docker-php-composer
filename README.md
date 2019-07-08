@@ -2,12 +2,19 @@ docker-php-composer
 ===================
 
 [![Latest release][latest-release-img]][latest-release-url]
-[![Build status][build-status-img]][build-status-url]
+[![Travis build status][travis-build-img]][travis-build-url]
+[![Docker build status][docker-build-img]][docker-build-url]
+[![Docker Hub downloads][docker-pulls-img]][docker-pulls-url]
 
 [latest-release-img]: https://img.shields.io/github/release/roeldev/docker-php-composer.svg?label=latest
 [latest-release-url]: https://github.com/roeldev/docker-php-composer/releases
-[build-status-img]: https://img.shields.io/travis/roeldev/docker-php-composer.svg
-[build-status-url]: https://travis-ci.org/roeldev/docker-php-composer
+[travis-build-img]: https://img.shields.io/travis/roeldev/docker-php-composer.svg
+[travis-build-url]: https://travis-ci.org/roeldev/docker-php-composer
+[docker-build-img]: https://img.shields.io/docker/cloud/build/roeldev/php-composer.svg
+[docker-build-url]: https://hub.docker.com/r/roeldev/php-composer
+[docker-pulls-img]: https://img.shields.io/docker/pulls/roeldev/php-composer.svg
+[docker-pulls-url]: https://hub.docker.com/r/roeldev/php-composer
+
 
 An image with PHP and Composer, based on Alpine Linux with S6 overlay. Can be used as builder image by using Composer to install dependencies etc. and copying the result to the final image, or as a base image for you own custom images.
 
@@ -22,19 +29,21 @@ An image with PHP and Composer, based on Alpine Linux with S6 overlay. Can be us
 
 [docker-tags-url]: https://hub.docker.com/r/roeldev/php-composer/tags
 [mb-71-img]: https://images.microbadger.com/badges/image/roeldev/php-composer:7.1-latest.svg
-[mb-72-img]: https://images.microbadger.com/badges/image/roeldev/php-composer:7.2-latest.svg
-[mb-73-img]: https://images.microbadger.com/badges/image/roeldev/php-composer:7.3-latest.svg
-[mb-74-img]: https://images.microbadger.com/badges/image/roeldev/php-composer:7.4-latest.svg
 [mb-71-url]: https://microbadger.com/images/roeldev/php-composer:7.1-latest
+[mb-72-img]: https://images.microbadger.com/badges/image/roeldev/php-composer:7.2-latest.svg
 [mb-72-url]: https://microbadger.com/images/roeldev/php-composer:7.2-latest
+[mb-73-img]: https://images.microbadger.com/badges/image/roeldev/php-composer:7.3-latest.svg
 [mb-73-url]: https://microbadger.com/images/roeldev/php-composer:7.3-latest
+[mb-74-img]: https://images.microbadger.com/badges/image/roeldev/php-composer:7.4-latest.svg
 [mb-74-url]: https://microbadger.com/images/roeldev/php-composer:7.4-latest
 
 
-## Builder image usage example
+# Usage
+
+## Builder image
 ```
 ARG PHP_VERSION="7.3"
-FROM roeldev/php-composer:${PHP_VERSION} as composer
+FROM roeldev/php-composer:${PHP_VERSION} as builder
 
 COPY local/path/to/project /project/folder
 WORKDIR /project/folder
@@ -50,12 +59,14 @@ RUN set -x \
 
 # create actual image
 FROM roeldev/php-cli:${PHP_VERSION}
-COPY --from=composer /project/folder /actual/project
+COPY --from=builder /project/folder /actual/project
 ```
 
+
 ## Links
-- Github: https://github.com/roeldev/docker-php-composer
-- Docker hub: https://hub.docker.com/r/roeldev/php-composer
+- GitHub: https://github.com/roeldev/docker-php-composer
+- Docker Hub: https://hub.docker.com/r/roeldev/php-composer
+- PHP.earth packages: https://repos.php.earth/alpine/v3.9/x86_64/
 
 
 ## License
