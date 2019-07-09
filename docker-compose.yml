@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  travis:
+    image: roeldev/php-composer:${PHP_VERSION}-${IMAGE_TAG}
+    build:
+      context: .
+      args:
+        PHP_VERSION: "${PHP_VERSION}"
+
+  local:
+    image: roeldev/php-composer:local
+    container_name: php-composer
+    build: .
