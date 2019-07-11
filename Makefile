@@ -22,3 +22,7 @@ restart: stop start
 .PHONY login:
 login:
 	docker exec -it ${CONTAINER} bash
+
+.PHONY renew:
+renew:
+	docker pull roeldev/php-cli:7.1-v1
