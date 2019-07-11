@@ -2,7 +2,7 @@ version: '3.4'
 
 services:
   travis:
-    image: roeldev/php-composer:${PHP_TAG}-${IMAGE_TAG}
+    image: roeldev/php-composer:${PHP_VERSION}-${IMAGE_TAG}
     build:
       context: .
       args:
