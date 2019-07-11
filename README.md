@@ -67,7 +67,8 @@ COPY --from=builder /project/folder /actual/project
 ## Links
 - GitHub: https://github.com/roeldev/docker-php-composer
 - Docker Hub: https://hub.docker.com/r/roeldev/php-composer
-- PHP.earth packages: https://repos.php.earth/alpine/v3.9/x86_64/
+- Composer: https://getcomposer.org/
+- Packagist: https://packagist.org/
 
 
 ## License
