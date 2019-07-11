@@ -19,19 +19,22 @@ env:
     - PHP_VERSION=7.1
     - PHP_VERSION=7.2
     - PHP_VERSION=7.3
+    - PHP_VERSION=7.4
+      PHP_TAG=7.4-rc
 
 before_script:
   - git clone git://github.com/roeldev/travis-ci-scripts.git
   - chmod ugo+x travis-ci-scripts/docker-build.sh
 
 script:
+  - export PHP_TAG=${PHP_TAG:=${PHP_VERSION}}
   - travis-ci-scripts/docker-build.sh
 
 before_deploy:
-  - docker login -u "$DOCKER_USER" -p "$DOCKER_PASS"
+  - docker login -u "${DOCKER_USER}" -p "${DOCKER_PASS}"
 
 deploy:
   provider: script
-  script: docker push $DOCKER_REPO
+  script: docker push ${DOCKER_REPO}
   on:
     tags: true
