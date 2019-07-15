@@ -4,9 +4,9 @@ FROM roeldev/php-cli:${PHP_VERSION}-v1
 ENV COMPOSER_ALLOW_SUPERUSER=1 \
     PATH="/root/.composer/vendor/bin:$PATH"
 
-# install dependencies
 RUN set -x \
  && apk update \
+ # install dependencies
  && apk add \
     --no-cache \
         git \
