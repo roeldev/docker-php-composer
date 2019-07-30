@@ -1,5 +1,5 @@
 ARG PHP_VERSION="7.1"
-FROM roeldev/php-cli:${PHP_VERSION}-v1
+FROM roeldev/php-cli:${PHP_VERSION}-v1.4
 
 ENV COMPOSER_ALLOW_SUPERUSER=1 \
     PATH="/root/.composer/vendor/bin:$PATH"
