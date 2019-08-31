@@ -23,10 +23,10 @@ An image with PHP and Composer, based on Alpine Linux with S6 overlay. Can be us
 
 | Image | PHP | Composer | Info |
 |-------|-----|----------|------|
-| [roeldev/php-composer:7.1-latest][docker-tags-url] | 7.1.28 | 1.8.6 | [![mb-71-img]][mb-71-url]
-| [roeldev/php-composer:7.2-latest][docker-tags-url] | 7.2.17 | 1.8.6 | [![mb-72-img]][mb-72-url]
-| [roeldev/php-composer:7.3-latest][docker-tags-url] | 7.3.4 | 1.8.6 | [![mb-73-img]][mb-73-url]
-| [roeldev/php-composer:7.4-rc-latest][docker-tags-url] | 7.4.0alpha1 | 1.8.6 | [![mb-74-img]][mb-74-url]
+| [roeldev/php-composer:7.1-latest][docker-tags-url] | 7.1.28 | 1.9.0 | [![mb-71-img]][mb-71-url]
+| [roeldev/php-composer:7.2-latest][docker-tags-url] | 7.2.17 | 1.9.0 | [![mb-72-img]][mb-72-url]
+| [roeldev/php-composer:7.3-latest][docker-tags-url] | 7.3.4 | 1.9.0 | [![mb-73-img]][mb-73-url]
+| [roeldev/php-composer:7.4-rc-latest][docker-tags-url] | 7.4.0alpha1 | 1.9.0 | [![mb-74-img]][mb-74-url]
 
 [docker-tags-url]: https://hub.docker.com/r/roeldev/php-composer/tags
 [mb-71-img]: https://images.microbadger.com/badges/image/roeldev/php-composer:7.1-latest.svg
